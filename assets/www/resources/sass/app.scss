@@ -1,0 +1,61 @@
+@import 'sencha-touch/default/all';
+
+$dark: #2d2d2d;
+$base-color: $dark;
+$base-gradient: 'glossy';
+
+$toolbar-gradient: 'glossy';
+$toolbar-base-color: $dark;
+
+$list-color: #FFFFFF;
+$list-bg-color: $dark;
+$list-active-color: $dark;
+
+// You may remove any of the following modules that you
+// do not use in order to create a smaller css file.
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-sheet;
+@include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+@include sencha-toolbar-forms;
+@include sencha-indexbar;
+@include sencha-list;
+@include sencha-layout;
+@include sencha-carousel;
+@include sencha-form;
+@include sencha-msgbox;
+
+$dottybackground: url(../../touch/resources/themes/images/default/dotgrid.png);
+
+// Your custom code goes here...
+.tag-list {
+  background: $dottybackground, $dark;
+  color: #FFFFFF;
+  .list-image {
+    float: left;
+  }
+  .list-title {
+    font-weight: bold;
+  }
+  .list-subtitle {
+  }
+  .list-created {
+    color: #DDDDDD;
+  }
+  .x-list-item {
+    background: $dark;
+    @include background-gradient($dark, 'matte');
+  }
+}
+
+.share-panel {
+  background: $dottybackground;
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+@include pictos-iconmask('twitter2');
+@include pictos-iconmask('mail');
+@include pictos-iconmask('chat_black1');
