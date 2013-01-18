@@ -22,3 +22,6 @@ local.properties
 
 # Intellij project files
 .idea
+
+# sencha touch file ignores.
+deltas
