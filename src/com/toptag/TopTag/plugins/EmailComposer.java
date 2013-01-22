@@ -17,7 +17,7 @@ import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.apache.cordova.api.LOG;
 
-public class SocialShare extends CordovaPlugin {
+public class EmailComposer extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -56,7 +56,7 @@ public class SocialShare extends CordovaPlugin {
         try {
             isHTML = parameters.getBoolean("bIsHTML");
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling isHTML param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling isHTML param: " + e.toString());
         }
 
         if (isHTML) {
@@ -72,7 +72,7 @@ public class SocialShare extends CordovaPlugin {
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
             }
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling subject param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling subject param: " + e.toString());
         }
 
         // setting body
@@ -86,7 +86,7 @@ public class SocialShare extends CordovaPlugin {
                 }
             }
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling body param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling body param: " + e.toString());
         }
 
         // setting TO recipients
@@ -100,7 +100,7 @@ public class SocialShare extends CordovaPlugin {
                 emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, to);
             }
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling toRecipients param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling toRecipients param: " + e.toString());
         }
 
         // setting CC recipients
@@ -114,7 +114,7 @@ public class SocialShare extends CordovaPlugin {
                 emailIntent.putExtra(android.content.Intent.EXTRA_CC, cc);
             }
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling ccRecipients param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling ccRecipients param: " + e.toString());
         }
 
         // setting BCC recipients
@@ -128,7 +128,7 @@ public class SocialShare extends CordovaPlugin {
                 emailIntent.putExtra(android.content.Intent.EXTRA_BCC, bcc);
             }
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling bccRecipients param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling bccRecipients param: " + e.toString());
         }
 
         // setting attachments
@@ -145,7 +145,7 @@ public class SocialShare extends CordovaPlugin {
                             uris.add(uri);
                         }
                     } catch (Exception e) {
-                        LOG.e("SocialShare", "Error adding an attachment: " + e.toString());
+                        LOG.e("EmailComposer", "Error adding an attachment: " + e.toString());
                     }
                 }
                 if (uris.size() > 0) {
@@ -153,7 +153,7 @@ public class SocialShare extends CordovaPlugin {
                 }
             }
         } catch (Exception e) {
-            LOG.e("SocialShare", "Error handling attachments param: " + e.toString());
+            LOG.e("EmailComposer", "Error handling attachments param: " + e.toString());
         }
 
         this.cordova.startActivityForResult(this, emailIntent, 0);
@@ -163,7 +163,7 @@ public class SocialShare extends CordovaPlugin {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         // TODO handle callback
         super.onActivityResult(requestCode, resultCode, intent);
-        LOG.e("SocialShare", "ResultCode: " + resultCode);
+        LOG.e("EmailComposer", "ResultCode: " + resultCode);
         // IT DOESN'T SEEM TO HANDLE RESULT CODES
     }
 
